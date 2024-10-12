@@ -38,10 +38,14 @@ public class InputPanel extends JPanel {
 		JLabel label1 = new JLabel(label1Text);
 		label1.setForeground(Color.RED);
 		_value1 = new NumericTextField();
+        Color lightRed = new Color(255, 185, 185);
+		_value1.setBackground(lightRed);
 				
 		JLabel label2 = new JLabel(label2Text);
 		label2.setForeground(Color.BLUE);
 		_value2 = new NumericTextField();
+        Color lightBlue = new Color(185, 211, 255);
+		_value2.setBackground(lightBlue);
 		
 		_value2.addKeyListener(new EnterKeyListener());
 		

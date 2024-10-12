@@ -33,14 +33,20 @@ public class RuleOfThreeCalculatorView extends JPanel {
 		JLabel label1 = new JLabel("a: ");
 		label1.setForeground(Color.RED);
 		_value1 = new NumericTextField();
+        Color lightRed = new Color(255, 185, 185);
+		_value1.setBackground(lightRed);
 		
 		JLabel label2 = new JLabel("= r1: ");
 		label2.setForeground(Color.GREEN);
 		_value2 = new NumericTextField();
+		Color lightGreen = new Color(204, 255, 185);
+		_value2.setBackground(lightGreen);
 		
 		JLabel label3 = new JLabel("b:");
 		label3.setForeground(Color.BLUE);
 		_value3 = new NumericTextField();
+		Color lightBlue = new Color(185, 211, 255);
+		_value3.setBackground(lightBlue);
 		
 		_value3.addKeyListener(new EnterKeyListener());
 		
