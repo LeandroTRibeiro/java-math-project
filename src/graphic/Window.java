@@ -79,7 +79,13 @@ public class Window extends JFrame {
         		Mathcalcs::CalculatePercentageChange
         );
                 
-        inputPanel7 = new InputPanel("Valor final R$ (a)", "% desconto (b)", "Valor inicial: ", "Qual era o valor original?", Mathcalcs::Discount);
+        inputPanel7 = new InputPanel(
+        		"Valor final R$ (a)", 
+        		"% desconto (b)", 
+        		"Valor inicial: ", 
+        		"Qual era o valor original?", 
+        		Mathcalcs::CalculateOriginalPrice
+        );
                 
         inputPanel8 = new InputPanel("Valor Inicial R$ (a)", "% desconto (b)", "Resultado: ", "Qual era o valor original?", Mathcalcs::Discount);
                 

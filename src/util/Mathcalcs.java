@@ -25,4 +25,8 @@ public class Mathcalcs {
     public static double CalculatePercentageChange(double a, double b) {
     	return ((b - a) / a) * 100;
     }
+    
+    public static double CalculateOriginalPrice(double a, double b) {
+    	return (a * 100 / (100 - b));
+    }
 }
