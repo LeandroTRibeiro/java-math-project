@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import components.template.InputPanel;
+import components.template.PasswordGeneratorView;
 import components.template.RuleOfThreeCalculatorView;
 
 import java.awt.*;
@@ -24,7 +25,7 @@ public class Window extends JFrame {
     private InputPanel inputPanel6;
     private InputPanel inputPanel7;
     private RuleOfThreeCalculatorView inputPanel8;
-    private InputPanel inputPanel9;
+    private PasswordGeneratorView inputPanel9;
 
     public Window() {
         setSize(800, 600);
@@ -90,7 +91,7 @@ public class Window extends JFrame {
                 
         inputPanel8 = new RuleOfThreeCalculatorView(Mathcalcs::CalculateRuleOfThree);
                 
-        inputPanel9 = new InputPanel("Valor Inicial R$ (a)", "% desconto (b)", "Resultado: ", "Qual era o valor original?", Mathcalcs::Discount);
+        inputPanel9 = new PasswordGeneratorView();
        
         add(inputPanel1);
         add(inputPanel2);
