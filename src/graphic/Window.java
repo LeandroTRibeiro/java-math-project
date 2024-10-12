@@ -29,6 +29,7 @@ public class Window extends JFrame {
 
     public Window() {
         setSize(800, 600);
+        setMinimumSize(new Dimension(800, 600));
         setExtendedState(MAXIMIZED_BOTH);
         setTitle("Trabalho Programação Orientada a Objetos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
