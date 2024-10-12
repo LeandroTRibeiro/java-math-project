@@ -75,7 +75,7 @@ public class RuleOfThreeCalculatorView extends JPanel {
 	private void calculationResult() {
 		
 		try {
-			
+			_value4.setBackground(Color.WHITE);	
 			_value4.setForeground(Color.BLACK);
 			
 			double a = getValue1();
@@ -85,12 +85,16 @@ public class RuleOfThreeCalculatorView extends JPanel {
 			double result = _calculationFunction.apply(a, b, c);
 			
 			_value4.setText(String.valueOf(result));
+			Color lightGreen = new Color(204, 255, 185);
+			_value4.setBackground(lightGreen);	
 			
 		} catch(NumberFormatException ex) {
 			
 			clearFields();
 			_value4.setText("ERROR: Invalid Value");
 			_value4.setForeground(Color.RED);
+	        Color lightRed = new Color(255, 185, 185);
+			_value4.setBackground(lightRed);
 			
 		}
 	}

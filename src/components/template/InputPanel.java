@@ -73,20 +73,24 @@ public class InputPanel extends JPanel {
 		
 		
 		try {
-			
+			_value3.setBackground(Color.WHITE);	
 			_value3.setForeground(Color.BLACK);
 			double a = getValue1();
 			double b = getValue2();
 			double result = _calculationFunction.apply(a, b);
 			
 			_value3.setText(String.valueOf(result));
-			
+			Color lightGreen = new Color(204, 255, 185);
+			_value3.setBackground(lightGreen);			
 			
 		} catch(NumberFormatException ex) {
 			
 			clearFields();
 			_value3.setText("ERROR: Invalid Value");
 			_value3.setForeground(Color.RED);
+	        Color lightRed = new Color(255, 185, 185);
+			_value3.setBackground(lightRed);
+
 			
 		}
 	}
