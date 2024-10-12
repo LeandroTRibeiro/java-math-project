@@ -74,9 +74,9 @@ public class Window extends JFrame {
                 
         inputPanel6 = new InputPanel(
         		"Valor Inicial R$ (a)", 
-        		"Valor Final (b)", "Diferença: ", 
+        		"Valor Final (b)", "% Diferença: ", 
         		"Variação Delta (%) - diferença % entre valores", 
-        		Mathcalcs::Discount
+        		Mathcalcs::CalculatePercentageChange
         );
                 
         inputPanel7 = new InputPanel("Valor final R$ (a)", "% desconto (b)", "Valor inicial: ", "Qual era o valor original?", Mathcalcs::Discount);
