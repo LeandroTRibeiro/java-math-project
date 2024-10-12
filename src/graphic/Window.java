@@ -69,7 +69,7 @@ public class Window extends JFrame {
         		"Valor original (a)", 
         		"Valor c/desconto (b)", "% desconto: ", 
         		"Valor era A e paguei B, qual foi o desconto %", 
-        		Mathcalcs::Discount
+        		Mathcalcs::CalculateDiscountPercentage
         );
                 
         inputPanel6 = new InputPanel(

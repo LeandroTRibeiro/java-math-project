@@ -54,6 +54,7 @@ public class InputPanel extends JPanel {
 		innerPanel.add(_value3);
 		
 		setLayout(new BorderLayout());
+		
 		setBorder(BorderFactory.createCompoundBorder(
 			BorderFactory.createTitledBorder(title),  
 			new EmptyBorder(15, 15, 15, 15)
@@ -66,6 +67,7 @@ public class InputPanel extends JPanel {
 		
 		
 		try {
+			
 			_value3.setForeground(Color.BLACK);
 			double a = getValue1();
 			double b = getValue2();
@@ -79,6 +81,7 @@ public class InputPanel extends JPanel {
 			clearFields();
 			_value3.setText("ERROR: Invalid Value");
 			_value3.setForeground(Color.RED);
+			
 		}
 	}
 	

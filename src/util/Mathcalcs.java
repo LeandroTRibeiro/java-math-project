@@ -17,4 +17,8 @@ public class Mathcalcs {
     public static double Sampling2(double a, double b) {
     	return (b / a) * 100;
     }
+    
+    public static double CalculateDiscountPercentage(double a, double b) {
+    	return ((a - b) / a) * 100;
+    }
 }
