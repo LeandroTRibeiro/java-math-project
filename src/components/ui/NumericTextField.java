@@ -1,4 +1,4 @@
-package components;
+package components.ui;
 
 import java.awt.Insets;
 import java.awt.event.KeyAdapter;

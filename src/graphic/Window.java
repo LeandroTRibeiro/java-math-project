@@ -5,7 +5,8 @@ import util.Mathcalcs;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import components.InputPanel;
+import components.template.InputPanel;
+import components.template.RuleOfThreeCalculatorView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,7 @@ public class Window extends JFrame {
     private InputPanel inputPanel5;
     private InputPanel inputPanel6;
     private InputPanel inputPanel7;
-    private InputPanel inputPanel8;
+    private RuleOfThreeCalculatorView inputPanel8;
     private InputPanel inputPanel9;
 
     public Window() {
@@ -87,7 +88,7 @@ public class Window extends JFrame {
         		Mathcalcs::CalculateOriginalPrice
         );
                 
-        inputPanel8 = new InputPanel("Valor Inicial R$ (a)", "% desconto (b)", "Resultado: ", "Qual era o valor original?", Mathcalcs::Discount);
+        inputPanel8 = new RuleOfThreeCalculatorView(Mathcalcs::CalculateRuleOfThree);
                 
         inputPanel9 = new InputPanel("Valor Inicial R$ (a)", "% desconto (b)", "Resultado: ", "Qual era o valor original?", Mathcalcs::Discount);
        

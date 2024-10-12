@@ -29,4 +29,8 @@ public class Mathcalcs {
     public static double CalculateOriginalPrice(double a, double b) {
     	return (a * 100 / (100 - b));
     }
+    
+    public static double CalculateRuleOfThree(double a, double b, double r1) {
+    	return (r1 * b) / a;
+    }
 }
