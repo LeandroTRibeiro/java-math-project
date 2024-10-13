@@ -9,9 +9,14 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -53,6 +58,18 @@ public class PasswordGeneratorView extends JPanel {
         _generatePassword = new JButton("Gerar");
         _password = new JTextField();
         _password.setPreferredSize(new Dimension(_password.getPreferredSize().width, 40));
+        
+        _password.setMargin(new Insets(0, 10, 0, 0));
+
+        _password.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String value = _password.getText();
+                copyToClipboard(value);
+                
+                _password.setText(value + " - copiado!");
+            }
+        });
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1.0; 
@@ -188,5 +205,11 @@ public class PasswordGeneratorView extends JPanel {
         }
 
         _password.setText(password.toString());
+    }
+
+    private void copyToClipboard(String text) {
+        StringSelection stringSelection = new StringSelection(text);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
     }
 }

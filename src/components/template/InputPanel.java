@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.Toolkit;
 import java.util.function.BiFunction;
 
 import javax.swing.BorderFactory;
@@ -50,7 +55,18 @@ public class InputPanel extends JPanel {
 		_value2.addKeyListener(new EnterKeyListener());
 		
 		JLabel label3 = new JLabel(response);
+		
 		_value3 = new NumericTextField();
+		
+		_value3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String value = _value3.getText();
+				copyToClipboard(value);
+				
+				_value3.setText(value + " - copiado!");
+			}
+		});
 		
 		innerPanel.add(label1);
 		innerPanel.add(_value1);
@@ -90,8 +106,6 @@ public class InputPanel extends JPanel {
 			_value3.setForeground(Color.RED);
 	        Color lightRed = new Color(255, 185, 185);
 			_value3.setBackground(lightRed);
-
-			
 		}
 	}
 	
@@ -102,23 +116,15 @@ public class InputPanel extends JPanel {
 			if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 				calculationResult();
 			}
-			
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
 		}
-
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
 		}
-
-		
 	}
 	
 	public Double getValue1() {
@@ -133,5 +139,10 @@ public class InputPanel extends JPanel {
 		_value1.setText("");
 		_value2.setText("");
 	}
-	
+
+	private void copyToClipboard(String text) {
+		StringSelection stringSelection = new StringSelection(text);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(stringSelection, null);
+	}
 }
