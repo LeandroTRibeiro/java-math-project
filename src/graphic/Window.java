@@ -42,50 +42,56 @@ public class Window extends JFrame {
         
         inputPanel1 = new InputPanel(
         		"Valor Inicial R$ (a)", 
-        		"% desconto (b)", "Resultado: ", 
-        		"Aplica desconto % num valor", 
+        		"Desconto % (b)", 
+        		"Resultado: R$", 
+        		"Aplica desconto % em um valor R$", 
         		Mathcalcs::Discount
         );
                 
         inputPanel2 = new InputPanel(
         		"Valor Inicial R$ (a)", 
-        		"% acréscimo (b)", "Resultado: ", 
-        		"Incrementar % num valor", 
+        		"Acréscimo % (b)", 
+        		"Resultado: R$", 
+        		"Incrementar % em um valor R$", 
         		Mathcalcs::Increment
         );
                 
         inputPanel3 = new InputPanel(
-        		"Total (a)", "% Porcentagem (b)", 
-        		"Corresponde a: ", 
+        		"Total (a)", 
+        		"Porcentagem % (b)", 
+        		"Corresponde a:", 
         		"Amostragem - Quanto X% representa de Y", 
         		Mathcalcs::Sampling
         );
                 
         inputPanel4 = new InputPanel(
-        		"Total (a)", "Parte (b)", 
+        		"Total (a)", 
+        		"Parte (b)", 
         		"Corresponde a %: ", 
-        		"Amostragem 2 - Quanto X representa de Y", 
+        		"Amostragem 2 - Quanto X representa de Y em %", 
         		Mathcalcs::Sampling2
         );
                 
         inputPanel5 = new InputPanel(
         		"Valor original (a)", 
-        		"Valor c/desconto (b)", "% desconto: ", 
+        		"Valor c/desconto (b)", 
+        		"Desconto: %", 
         		"Valor era A e paguei B, qual foi o desconto %", 
         		Mathcalcs::CalculateDiscountPercentage
         );
                 
         inputPanel6 = new InputPanel(
         		"Valor Inicial R$ (a)", 
-        		"Valor Final (b)", "% Diferença: ", 
+        		"Valor Final R$ (b)", 
+        		"Diferença: %", 
         		"Variação Delta (%) - diferença % entre valores", 
         		Mathcalcs::CalculatePercentageChange
         );
                 
         inputPanel7 = new InputPanel(
         		"Valor final R$ (a)", 
-        		"% desconto (b)", 
-        		"Valor inicial: ", 
+        		"Desconto % (b)", 
+        		"Valor inicial: R$", 
         		"Qual era o valor original?", 
         		Mathcalcs::CalculateOriginalPrice
         );
