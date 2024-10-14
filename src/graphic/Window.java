@@ -3,9 +3,12 @@ package graphic;
 import util.Mathcalcs;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
 import components.template.InputPanel;
 import components.template.PasswordGeneratorView;
+import components.template.ProjectCredits;
 import components.template.RuleOfThreeCalculatorView;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 

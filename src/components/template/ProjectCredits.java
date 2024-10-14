@@ -1,4 +1,4 @@
-package graphic;
+package components.template;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,9 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.ImageIcon;
 
 import components.ui.IconButton;
+
+import javax.swing.ImageIcon;
 
 public class ProjectCredits extends JFrame {
 
@@ -30,7 +31,7 @@ public class ProjectCredits extends JFrame {
         setTitle("Créditos");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/info.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../../assets/info.png")));
 
         contentPanel = new JPanel(new GridLayout(8, 1, 10, 10));
 
@@ -109,13 +110,13 @@ public class ProjectCredits extends JFrame {
     private void showGif() {
         contentPanel.removeAll();
 
-        ImageIcon gifIcon = new ImageIcon(getClass().getResource("../assets/dance-party-bill-gates.gif"));
+        ImageIcon gifIcon = new ImageIcon(getClass().getResource("../../assets/dance-party-bill-gates.gif"));
 
         JLabel gifLabel = new JLabel(gifIcon);
 
-        JLabel thankYouLabel = new JLabel("Obrigado Professor! 🎉", SwingConstants.CENTER);
-        thankYouLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        thankYouLabel.setForeground(Color.BLACK);
+        JLabel thankYouLabel = new JLabel("Obrigado Professor! \uD83C\uDF89", SwingConstants.CENTER);
+        Font emojiFont = new Font("Segoe UI Emoji", Font.PLAIN, 20);
+        thankYouLabel.setFont(emojiFont);
 
         contentPanel.setLayout(new BorderLayout());
 
