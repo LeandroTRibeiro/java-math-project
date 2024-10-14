@@ -7,11 +7,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import components.ui.NumericTextField;
+import services.CopyMouseAdapter;
 
 public class RuleOfThreeCalculatorView extends JPanel {
     
@@ -72,15 +68,7 @@ public class RuleOfThreeCalculatorView extends JPanel {
         label4.setHorizontalAlignment(SwingConstants.LEFT);
         _value4 = new NumericTextField();
         
-        _value4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                String value = _value4.getText();
-                copyToClipboard(value);
-                
-                _value4.setText(value + " - copiado!");
-            }
-        });
+        _value4.addMouseListener(new CopyMouseAdapter(_value4));
                 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -201,9 +189,4 @@ public class RuleOfThreeCalculatorView extends JPanel {
         _value3.setText("");
     }
 
-    private void copyToClipboard(String text) {
-        StringSelection stringSelection = new StringSelection(text);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-    }
 }

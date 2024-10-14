@@ -5,11 +5,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.Toolkit;
 import java.util.function.BiFunction;
 
 import javax.swing.BorderFactory;
@@ -19,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import components.ui.NumericTextField;
+import services.CopyMouseAdapter;
 
 public class InputPanel extends JPanel {
 	
@@ -58,15 +54,7 @@ public class InputPanel extends JPanel {
 		
 		_value3 = new NumericTextField();
 		
-		_value3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				String value = _value3.getText();
-				copyToClipboard(value);
-				
-				_value3.setText(value + " - copiado!");
-			}
-		});
+		_value3.addMouseListener(new CopyMouseAdapter(_value3));
 		
 		innerPanel.add(label1);
 		innerPanel.add(_value1);
@@ -140,9 +128,5 @@ public class InputPanel extends JPanel {
 		_value2.setText("");
 	}
 
-	private void copyToClipboard(String text) {
-		StringSelection stringSelection = new StringSelection(text);
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(stringSelection, null);
-	}
+
 }

@@ -9,14 +9,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -26,6 +21,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
+
+import services.CopyMouseAdapter;
 
 public class PasswordGeneratorView extends JPanel {
     
@@ -61,15 +58,7 @@ public class PasswordGeneratorView extends JPanel {
         
         _password.setMargin(new Insets(0, 10, 0, 0));
 
-        _password.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                String value = _password.getText();
-                copyToClipboard(value);
-                
-                _password.setText(value + " - copiado!");
-            }
-        });
+        _password.addMouseListener(new CopyMouseAdapter(_password));
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1.0; 
@@ -207,9 +196,4 @@ public class PasswordGeneratorView extends JPanel {
         _password.setText(password.toString());
     }
 
-    private void copyToClipboard(String text) {
-        StringSelection stringSelection = new StringSelection(text);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-    }
 }
