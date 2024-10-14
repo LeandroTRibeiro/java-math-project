@@ -3,22 +3,26 @@ package components.template;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URI;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import components.ui.IconButton;
 
 import javax.swing.ImageIcon;
+import javax.swing.InputMap;
 
 public class ProjectCredits extends JFrame {
 
@@ -32,6 +36,7 @@ public class ProjectCredits extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../../assets/info.png")));
+        
 
         contentPanel = new JPanel(new GridLayout(8, 1, 10, 10));
 
@@ -40,6 +45,9 @@ public class ProjectCredits extends JFrame {
             new EmptyBorder(15, 15, 15, 15)
         ));
 
+        disableKey(KeyEvent.VK_TAB);
+        disableKey(KeyEvent.VK_ENTER);
+        
         JLabel titleLabel = new JLabel("Projeto desenvolvido por:", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         contentPanel.add(titleLabel);
@@ -136,6 +144,11 @@ public class ProjectCredits extends JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Não foi possível abrir o link.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    private void disableKey(int keyCode) {
+        InputMap inputMap = contentPanel.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        inputMap.put(KeyStroke.getKeyStroke(keyCode, 0), "none");
     }
 
 }
